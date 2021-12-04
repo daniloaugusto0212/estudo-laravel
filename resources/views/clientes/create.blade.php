@@ -1,5 +1,7 @@
 @extends('layouts.principal')
 
+@section('titulo', 'Clientes - Novo')
+
 @section('conteudo')
     <h3>Novo Cliente</h3>
 
@@ -8,5 +10,5 @@
         <input type="text" name="nome" id="">
         <input type="submit" value="Salvar">
     </form>
-    
+
 @endsection

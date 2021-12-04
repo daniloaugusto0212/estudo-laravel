@@ -1,5 +1,8 @@
 @extends('layouts.principal')
 
+@section('titulo', 'Clientes')
+
+
 @section('conteudo')
 
     <h3>{{$titulo}}:</h3>
@@ -18,6 +21,39 @@
                 </li>
             @endforeach
         </ul>
+
+        <hr>
+
+        @for($i = 0; $i < 10; $i++)
+            {{ $i }},
+        @endfor
+
+        <br>
+
+        @for($i = 0; $i < count($clientes); $i++)
+            {{ $clientes[$i]['nome']}}
+            @if ($i < count($clientes) - 1)
+                {{',' }}
+            @else
+                {{ '.' }}
+            @endif
+        @endfor
+        <br>
+
+        @foreach ($clientes as $c)
+        <!--FOREACH nos dá acesso a variável $loop-->
+            <p>
+                {{$c['nome']}} |
+                @if ($loop->first)
+                    (primeiro) |
+                @endif
+
+                @if ($loop->last)
+                    (último)
+                @endif
+                ({{ $loop->index }}) - {{ $loop->iteration}} / {{ $loop->count }}
+            </p>
+        @endforeach
     @else
     <h3>Não há clientes cadastrados!</h3>
     @endif
