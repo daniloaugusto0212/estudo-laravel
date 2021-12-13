@@ -33,6 +33,14 @@ Route::get('departamentos', function () {
     return view('departamentos.index');
 })->name('departamentos');
 
+Route::get('/opcoes/{opcao?}', function ($opcao = null) {
+    return view('opcoes.index', compact(['opcao']));
+})->name('opcoes');
+
+Route::get('/bootstrap', function () {
+    return view('bootstrap.index');
+});
+
 //ESTUDO DAS ROTAS
 // Route::get('/teste', function () {
 //     return view('teste');
